@@ -1,0 +1,13 @@
+Options +FollowSymlinks
+RewriteEngine On
+#RewriteBase /actual_trabajo/php-rest-api/php-restful-web-service
+RewriteBase /
+
+RewriteRule ^list$               RestController.php?view=all [nc,qsa]
+RewriteRule ^list/$              RestController.php?view=all [nc,qsa]
+RewriteRule ^list/([0-9]+)/$     RestController.php?view=single&id=$1 [nc,qsa]
+
+
+
+
+
