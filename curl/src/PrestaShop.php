@@ -16,6 +16,10 @@ class PrestaShop
 
     private $header = array();
 
+    private $username = "9nERRt916EI8EQz66Q5GfPa64doFiCCq";
+
+    private $password = "9nERRt916EI8EQz66Q5GfPa64doFiCCq";
+
     private array $params = array();
 
     private $data;
@@ -59,12 +63,13 @@ class PrestaShop
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$this->url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        //curl_setopt($ch, CURLOPT_ENCODING,"");
-        //curl_setopt($ch, CURLOPT_MAXREDIRS,10);
-        //curl_setopt($ch, CURLOPT_TIMEOUT,30);
-        //curl_setopt($ch, CURLOPT_HTTP_VERSION,"CURL_HTTP_VERSION_1_1");
+        curl_setopt($ch, CURLOPT_USERPWD, $this->getUsername() . ":" . $this->getPassword());
+        curl_setopt($ch, CURLOPT_ENCODING,"");
+        curl_setopt($ch, CURLOPT_MAXREDIRS,10);
+        curl_setopt($ch, CURLOPT_TIMEOUT,30);
+        curl_setopt($ch, CURLOPT_HTTP_VERSION,"CURL_HTTP_VERSION_1_1");
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST,"GET");
-        //curl_setopt($ch, CURLOPT_HTTPHEADER,$this->header);
+        curl_setopt($ch, CURLOPT_HTTPHEADER,$this->header);
 
         # curl --trace-ascii err.txt -X POST -H "Content-type:text/xml" --data-urlencode @cnew.xml "http://JXDLSL4MTV0GLFFNIMC4H35L4DV93IYP:@192.168.1.3/prestashop/api/customers/"
 
@@ -72,6 +77,7 @@ class PrestaShop
         $response = curl_exec($ch);
         //$response = simplexml_load_string($response);
         //p_($response);
+        //die();
         $err = curl_error($ch);
 
         # cerramos conexion
@@ -170,6 +176,26 @@ class PrestaShop
     public function setReturnData(string $returnData): void
     {
         $this->returnData = $returnData;
+    }
+
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
     }
 
 }
