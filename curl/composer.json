@@ -1,0 +1,19 @@
+{
+    "name": "pruebas/curl",
+    "description": "Pruebas con curl",
+    "autoload": {
+        "psr-4": {
+            "Pruebas\\Curl\\": "src/"
+        },
+        "files": [
+            "librerias/funciones.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "David Berruezo",
+            "email": "davidberruezo@davidberruezo.com"
+        }
+    ],
+    "require": {}
+}
