@@ -1,0 +1,21 @@
+{
+    "name": "pruebas/guzzle",
+    "description": "Pruebas con Guzzle",
+    "autoload": {
+        "psr-4": {
+            "Pruebas\\Guzzle\\": "src/"
+        },
+        "files": [
+            "librerias/funciones.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "David Berruezo",
+            "email": "davidberruezo@davidberruezo.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}
