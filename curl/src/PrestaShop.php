@@ -75,8 +75,8 @@ class PrestaShop
 
         # obtenemos resultados
         $response = curl_exec($ch);
-        //$response = simplexml_load_string($response);
-        //p_($response);
+        // $response = simplexml_load_string($response);
+        // p_($response);
         //die();
         $err = curl_error($ch);
 
